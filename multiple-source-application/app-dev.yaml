@@ -3,10 +3,12 @@ kind: Application
 metadata:
   name: hello-world-dev
   namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io/foreground
 spec:
   destination:
-    namespace: dev
-    name: kind
+    namespace: hello-world-dev
+    name: in-cluster
   project: default
   sources:
     # Chart from Chart Repo
