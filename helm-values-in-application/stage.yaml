@@ -3,10 +3,12 @@ kind: Application
 metadata:
   name: hello-world-stage
   namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io/foreground
 spec:
   destination:
-    namespace: stage
-    name: kind
+    namespace: hello-world-stage
+    name: in-cluster
   project: default
   source:
     chart: hello-world
