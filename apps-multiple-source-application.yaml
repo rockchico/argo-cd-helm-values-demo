@@ -2,6 +2,9 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: apps-multiple-source-application
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io/foreground
 spec:
   destination:
     name: in-cluster
